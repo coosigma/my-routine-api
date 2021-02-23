@@ -1,10 +1,10 @@
 {
   "name": "my-routine-api",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Backend of my-routine application",
+  "author": "Bing Liang",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "GNU GPL V3.0",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
