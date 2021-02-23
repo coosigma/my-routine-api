@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  email    String    @unique
+  name     String?
+  routines Routine[]
+
+  @@map(name: "users")
+}
+
+model Routine {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique @db.VarChar(255)
+  description String? @db.VarChar(255)
+  events      Event[]
+  userId      Int
+  owner       User    @relation(fields: [userId], references: [id])
+
+  @@map(name: "routines")
+}
+
+model Event {
+  routineId  Int
+  id         Int      @id @default(autoincrement())
+  start_time DateTime @default(now()) @db.Date
+  type       Routine  @relation(fields: [routineId], references: [id])
+  duration   Int // Unit: Minute
+  Quality    Int      @db.TinyInt
+
+  @@map(name: "events")
+}
