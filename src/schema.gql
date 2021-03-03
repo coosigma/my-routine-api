@@ -1,0 +1,36 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Event {
+  id: Int!
+  routineId: Int!
+  start_time: DateTime!
+  duration: Int!
+  quality: Int!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Routine {
+  id: Int!
+  name: String!
+  description: String
+  userId: Int!
+  events: [Event!]!
+}
+
+type User {
+  id: Int!
+  email: String!
+  user: String
+  password: String!
+  routines: [Routine!]!
+}
+
+type Query {
+  users: [User!]!
+}

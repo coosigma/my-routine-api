@@ -36,7 +36,7 @@ model Event {
   start_time DateTime @default(now()) @db.Date
   type       Routine  @relation(fields: [routineId], references: [id])
   duration   Int // Unit: Minute
-  Quality    Int      @db.TinyInt
+  quality    Int      @db.TinyInt
 
   @@map(name: "events")
 }

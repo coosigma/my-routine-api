@@ -25,7 +25,7 @@ CREATE TABLE `events` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `start_time` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `duration` INTEGER NOT NULL,
-    `Quality` TINYINT NOT NULL,
+    `quality` TINYINT NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
