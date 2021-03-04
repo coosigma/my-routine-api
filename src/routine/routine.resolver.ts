@@ -4,7 +4,7 @@ import { PrismaService } from '../prisma/prisma.service';
 
 @Resolver((of) => Routine)
 export class RoutineResolver {
-  constructor(private prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   @ResolveField()
   async events(@Parent() routine: Routine) {
