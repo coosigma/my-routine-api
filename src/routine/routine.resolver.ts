@@ -9,7 +9,7 @@ export class RoutineResolver {
   @ResolveField()
   async events(@Parent() routine: Routine) {
     return this.prisma.event.findMany({
-      where: { routineId: routine.id },
+      where: { type: { id: routine.id } },
     });
   }
 }

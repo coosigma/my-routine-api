@@ -1,4 +1,10 @@
-import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import {
+  Injectable,
+  OnModuleInit,
+  OnModuleDestroy,
+  // Inject
+} from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
 
 @Injectable()
@@ -8,10 +14,11 @@ export class PrismaService
   constructor() {
     super();
   }
-  async onModuleInit(): Promise<void> {
+  async onModuleInit() {
     await this.$connect();
+    // this.options.logger.info('Prisma connected!');
   }
-  async onModuleDestroy(): Promise<void> {
+  async onModuleDestroy() {
     await this.$disconnect();
   }
 }
